@@ -1,9 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
 app.set('port', 3001);
 app.use(express.json());
+app.use(cors());
 
 app.locals.ideas = [
   { id: 0, name: "Hello World", desc: "A simple idea" }, 
