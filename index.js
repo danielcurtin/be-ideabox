@@ -15,12 +15,12 @@ app.get('/', (request, response) => {
   return response.status(200).json({ idea: 'box' });
 });
 
-//Get all ideas
+// Get all ideas
 app.get('/api/v1/ideas', (request, response) => {
   return response.status(200).json({ ideas: app.locals.ideas });
 });
 
-//Add an idea
+// Add an idea
 app.post('/api/v1/ideas', (request, response) => {
   const newIdea = request.body;
   const requiredParams = ['name', 'desc'];
@@ -43,6 +43,21 @@ app.post('/api/v1/ideas', (request, response) => {
   }
   app.locals.ideas.push(newIdea);
   return response.status(201).json(newIdea);
+});
+
+// Remove an Idea
+app.delete('/api/v1/ideas/:idea_id', (request, response) => {
+  const ideaId = parseInt(request.params.idea_id);
+
+  const numIdeasBeforeFilter = app.locals.ideas.length;
+  const filteredIdeas = app.locals.ideas.filter(idea => ideaId !== idea.id);
+
+  if (numIdeasBeforeFilter === filteredIdeas.length) {
+    return response.status(404).json({ message: `No idea found with id: ${ideaId}` });
+  } else {
+    app.locals.ideas = filteredIdeas;
+    return response.sendStatus(204);
+  };
 });
 
 app.listen(app.get('port'), () => {
