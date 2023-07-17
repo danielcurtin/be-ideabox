@@ -5,7 +5,7 @@ Backend side of a little ideabox application utilizing RESTful APIs with GET, PO
 
 ## Installation
 `clone` this directory<br>
-`cd fe-ideabox`<br>
+`cd be-ideabox`<br>
 `npm i` to install dependencies<br>
 `npm start` to run the server<br>
 and it should open up right into your default browser at `localhost:3000`<br>
