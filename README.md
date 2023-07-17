@@ -1,4 +1,4 @@
-<h1 align="center">Fullstack Ideabox (Frontend)</h1>
+<h1 align="center">Fullstack Ideabox (Backend)</h1>
 
 ## Abstract
 Backend side of a little ideabox application utilizing RESTful APIs with GET, POST, and DELETE functionality to be used in conjunction with [Frontend Ideabox](https://github.com/danielcurtin/fe-ideabox) as a first step into fullstack development.
